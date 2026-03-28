@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { User, TrendingUp, Flame, Coins, Award, Target, Calendar, Shield } from "lucide-react";
+import SpendoraFlame from "@/components/SpendoraFlame";
 
 const stats = [
   { label: "Total Savings", value: "$1,247.50", icon: TrendingUp, color: "text-success" },

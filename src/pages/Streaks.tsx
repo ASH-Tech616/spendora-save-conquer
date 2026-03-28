@@ -86,7 +86,7 @@ const Streaks = () => {
                   }`}
                 >
                   {day.saved ? (
-                    <span className="text-lg">🔥</span>
+                    <SpendoraFlame size={20} hoverOnly />
                   ) : (
                     <span className="text-muted-foreground text-xs">—</span>
                   )}
@@ -111,7 +111,7 @@ const Streaks = () => {
           </div>
           <div className="space-y-4">
             {[
-              { label: "Current Streak", value: "12 days", sub: "🔥 On fire!" },
+              { label: "Current Streak", value: "12 days", sub: "On fire!" },
               { label: "Longest Streak", value: "18 days", sub: "Set 2 weeks ago" },
               { label: "Total Active Days", value: "47", sub: "Out of 60 days" },
               { label: "Streak Shields Used", value: "2 / 3", sub: "1 remaining" },

@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Flame, TrendingUp, Coins, Target, Plus, Swords, Sparkles, ArrowUpRight } from "lucide-react";
 import AddSavingModal from "@/components/AddSavingModal";
+import SpendoraFlame from "@/components/SpendoraFlame";
 
 const statCards = [
   { label: "Total Savings", value: "$1,247.50", icon: TrendingUp, change: "+$42 today", color: "success" as const },
@@ -138,13 +139,7 @@ const Dashboard = () => {
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">Current Streak</p>
           <div className="flex items-center gap-3">
-            <motion.span
-              className="text-5xl"
-              animate={{ scale: [1, 1.1, 1], rotate: [-2, 2, -2] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              🔥
-            </motion.span>
+            <SpendoraFlame size={48} hoverOnly />
             <div>
               <p className="text-4xl font-black text-accent streak-glow">12</p>
               <p className="text-xs text-muted-foreground">days</p>
