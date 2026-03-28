@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, Flame, Swords, Trophy, User, Plus, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile, useIsTabletOrBelow } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const navItems = [
   { path: "/", icon: LayoutDashboard, label: "Dashboard" },
@@ -86,13 +86,13 @@ const SidebarContent = ({ onClose }: { onClose?: () => void }) => {
 };
 
 const AppSidebar = () => {
-  const isTabletOrBelow = useIsTabletOrBelow();
+  const isMobile = useIsMobile();
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Mobile/Tablet: bottom nav + overlay drawer
-  if (isTabletOrBelow) {
+  // Mobile: bottom nav + overlay drawer
+  if (isMobile) {
     return (
       <>
         {/* Mobile top header */}

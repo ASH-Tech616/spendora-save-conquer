@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 import AppSidebar from "@/components/AppSidebar";
-import { useIsTabletOrBelow } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AppLayout = () => {
-  const isTabletOrBelow = useIsTabletOrBelow();
+  const isMobile = useIsMobile();
 
   return (
-    <div className={`min-h-screen bg-background ${isTabletOrBelow ? "" : "flex"}`}>
+    <div className={`min-h-screen bg-background ${isMobile ? "" : "flex"}`}>
       <AppSidebar />
       <main className={
-        isTabletOrBelow
+        isMobile
           ? "pt-16 pb-20 px-4"
           : "flex-1 min-w-0 p-8 max-w-[1200px]"
       }>
