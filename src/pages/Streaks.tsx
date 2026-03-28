@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Clock, Calendar, TrendingUp, Zap } from "lucide-react";
-import CSSFire from "@/components/CSSFire";
+import SpendoraFlame from "@/components/SpendoraFlame";
 
 const streakHistory = [
   { day: "Mon", saved: true, amount: 15 },
@@ -35,7 +35,7 @@ const Streaks = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
         <div className="relative flex flex-col items-center">
-          <CSSFire size="md" className="mb-2" />
+          <SpendoraFlame size={80} className="mb-2" />
           <motion.p
             className="text-5xl md:text-7xl font-black text-accent streak-glow"
             initial={{ scale: 0 }}
