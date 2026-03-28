@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, Flame, Swords, Trophy, User, Plus, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useIsTabletOrBelow } from "@/hooks/use-mobile";
 
 const navItems = [
   { path: "/", icon: LayoutDashboard, label: "Dashboard" },
