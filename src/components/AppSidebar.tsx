@@ -73,13 +73,13 @@ const AppSidebar = () => {
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="fixed top-4 left-4 z-[60] w-10 h-10 rounded-xl bg-card/20 backdrop-blur-xl border border-border/20 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-border/50 transition-all duration-200"
+          className="fixed top-4 left-4 z-[60] w-10 h-10 rounded-xl bg-card/80 backdrop-blur-xl border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
           initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          whileHover={{ scale: 1.05 }}
+          animate={{ opacity: 0.2 }}
+          whileHover={{ opacity: 1, scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Menu size={18} className="opacity-50 group-hover:opacity-100" style={{ opacity: 0.5 }} />
+          <Menu size={18} />
         </motion.button>
       )}
 
