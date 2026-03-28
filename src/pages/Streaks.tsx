@@ -143,11 +143,14 @@ const Streaks = () => {
           {milestones.map((m, i) => (
             <motion.div
               key={m.days}
-              className={`text-center p-4 rounded-xl border ${
-                m.unlocked ? "border-accent/30 bg-accent/5 glow-accent" : "border-border bg-secondary/20"
+              className={`text-center p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
+                m.unlocked
+                  ? "border-accent/30 bg-accent/5 glow-accent"
+                  : "border-border bg-secondary/20 hover:border-accent/30 hover:bg-accent/5 hover:glow-accent"
               }`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ delay: 0.5 + i * 0.1 }}
             >
               <p className="text-2xl mb-2">{m.unlocked ? "🏆" : "🔒"}</p>
