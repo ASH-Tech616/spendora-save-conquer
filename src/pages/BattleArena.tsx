@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Swords, Users, Clock, Trophy, Zap } from "lucide-react";
+import { Swords, Users, Clock, Zap } from "lucide-react";
 
 const activeBattle = {
   name: "Weekend Saver Showdown",
@@ -22,13 +22,13 @@ const availableBattles = [
 const BattleArena = () => {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Battle Arena ⚔️</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Battle Arena ⚔️</h1>
           <p className="text-sm text-muted-foreground mt-1">Compete with friends. Save more. Win rewards.</p>
         </div>
         <motion.button
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-primary"
+          className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-primary"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -39,15 +39,15 @@ const BattleArena = () => {
 
       {/* Active Battle */}
       <motion.div
-        className="glass-card p-6 relative overflow-hidden"
+        className="glass-card p-4 md:p-6 relative overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5" />
         <div className="relative">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
                 <Swords size={20} className="text-primary" />
               </div>
               <div>
@@ -57,7 +57,7 @@ const BattleArena = () => {
                 </p>
               </div>
             </div>
-            <div className="text-right">
+            <div className="sm:text-right">
               <div className="flex items-center gap-1.5 text-accent text-sm font-medium">
                 <Clock size={14} />
                 {activeBattle.timeLeft} left
@@ -73,23 +73,23 @@ const BattleArena = () => {
               return (
                 <motion.div
                   key={player.name}
-                  className={`flex items-center gap-4 p-3 rounded-xl ${isUser ? "bg-primary/10 border border-primary/20" : "bg-secondary/30"}`}
+                  className={`flex items-center gap-3 md:gap-4 p-3 rounded-xl ${isUser ? "bg-primary/10 border border-primary/20" : "bg-secondary/30"}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.1 }}
                 >
-                  <span className={`text-sm font-bold w-6 ${player.rank === 1 ? "text-accent" : "text-muted-foreground"}`}>
+                  <span className={`text-sm font-bold w-6 shrink-0 ${player.rank === 1 ? "text-accent" : "text-muted-foreground"}`}>
                     #{player.rank}
                   </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${isUser ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${isUser ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"}`}>
                     {player.avatar}
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
-                      <p className={`text-sm font-medium ${isUser ? "text-primary" : "text-foreground"}`}>
+                      <p className={`text-sm font-medium truncate ${isUser ? "text-primary" : "text-foreground"}`}>
                         {player.name} {isUser && "⭐"}
                       </p>
-                      <p className="text-sm font-bold text-success">${player.savings}</p>
+                      <p className="text-sm font-bold text-success shrink-0 ml-2">${player.savings}</p>
                     </div>
                     <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
                       <motion.div
@@ -110,7 +110,7 @@ const BattleArena = () => {
       {/* Available Battles */}
       <div>
         <p className="text-sm font-semibold text-foreground mb-4">Available Battles</p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {availableBattles.map((battle, i) => (
             <motion.div
               key={battle.name}

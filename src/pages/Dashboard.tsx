@@ -56,9 +56,9 @@ const Dashboard = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Welcome back, Alex 👋</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Welcome back, Alex 👋</h1>
           <motion.p
             key={msgIndex}
             className="text-sm text-muted-foreground mt-1"
@@ -72,7 +72,7 @@ const Dashboard = () => {
         <div className="flex gap-3">
           <motion.button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-primary"
+            className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm glow-primary"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -80,7 +80,7 @@ const Dashboard = () => {
             Add Saving
           </motion.button>
           <motion.button
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-foreground font-semibold text-sm border border-border"
+            className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-xl bg-secondary text-foreground font-semibold text-sm border border-border"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -91,31 +91,31 @@ const Dashboard = () => {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         {statCards.map((card, i) => (
           <motion.div
             key={card.label}
-            className="glass-card-hover p-5"
+            className="glass-card-hover p-4 md:p-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{card.label}</span>
-              <div className={`w-8 h-8 rounded-lg ${bgMap[card.color]} flex items-center justify-center`}>
-                <card.icon size={16} className={colorMap[card.color]} />
+              <span className="text-[10px] md:text-xs font-medium text-muted-foreground uppercase tracking-wider">{card.label}</span>
+              <div className={`w-7 h-7 md:w-8 md:h-8 rounded-lg ${bgMap[card.color]} flex items-center justify-center`}>
+                <card.icon size={14} className={colorMap[card.color]} />
               </div>
             </div>
-            <p className="text-2xl font-bold text-foreground">{card.value}</p>
+            <p className="text-xl md:text-2xl font-bold text-foreground">{card.value}</p>
             <p className={`text-xs mt-1 ${colorMap[card.color]} font-medium`}>{card.change}</p>
           </motion.div>
         ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Streak highlight */}
         <motion.div
-          className="col-span-1 glass-card p-6 relative overflow-hidden"
+          className="lg:col-span-1 glass-card p-6 relative overflow-hidden"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
@@ -143,7 +143,7 @@ const Dashboard = () => {
 
         {/* Recent Savings */}
         <motion.div
-          className="col-span-2 glass-card p-6"
+          className="lg:col-span-2 glass-card p-6"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
@@ -162,15 +162,15 @@ const Dashboard = () => {
                 transition={{ delay: 0.6 + i * 0.05 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center shrink-0">
                     <TrendingUp size={14} className="text-success" />
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">{saving.reason}</p>
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-foreground truncate">{saving.reason}</p>
                     <p className="text-xs text-muted-foreground">{saving.time}</p>
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0 ml-2">
                   <p className="text-sm font-bold text-success">+${saving.amount}</p>
                   <p className="text-xs text-accent flex items-center gap-1">
                     <Sparkles size={10} />

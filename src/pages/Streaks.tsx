@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Flame, Shield, Clock, Calendar, TrendingUp, Zap } from "lucide-react";
+import { Shield, Clock, Calendar, TrendingUp, Zap } from "lucide-react";
+import CSSFire from "@/components/CSSFire";
 
 const streakHistory = [
   { day: "Mon", saved: true, amount: 15 },
@@ -22,27 +23,21 @@ const Streaks = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Streak System</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground">Streak System</h1>
         <p className="text-sm text-muted-foreground mt-1">Don't break the chain. Every day counts.</p>
       </div>
 
       {/* Main streak display */}
       <motion.div
-        className="glass-card p-10 text-center relative overflow-hidden"
+        className="glass-card p-6 md:p-10 text-center relative overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
-        <div className="relative">
-          <motion.div
-            className="text-8xl mb-4 inline-block"
-            animate={{ scale: [1, 1.1, 1], rotate: [-3, 3, -3] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            🔥
-          </motion.div>
+        <div className="relative flex flex-col items-center">
+          <CSSFire size="md" className="mb-2" />
           <motion.p
-            className="text-7xl font-black text-accent streak-glow"
+            className="text-5xl md:text-7xl font-black text-accent streak-glow"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", damping: 15 }}
@@ -51,7 +46,7 @@ const Streaks = () => {
           </motion.p>
           <p className="text-lg text-muted-foreground mt-2">Day Streak</p>
 
-          <div className="flex items-center justify-center gap-6 mt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6">
             <div className="flex items-center gap-2 text-success">
               <Shield size={18} />
               <span className="text-sm font-medium">Streak Shield: Active</span>
@@ -64,7 +59,7 @@ const Streaks = () => {
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Weekly view */}
         <motion.div
           className="glass-card p-6"
@@ -120,7 +115,7 @@ const Streaks = () => {
               { label: "Longest Streak", value: "18 days", sub: "Set 2 weeks ago" },
               { label: "Total Active Days", value: "47", sub: "Out of 60 days" },
               { label: "Streak Shields Used", value: "2 / 3", sub: "1 remaining" },
-            ].map((stat, i) => (
+            ].map((stat) => (
               <div key={stat.label} className="flex items-center justify-between p-3 rounded-xl bg-secondary/30">
                 <div>
                   <p className="text-xs text-muted-foreground">{stat.label}</p>
@@ -144,7 +139,7 @@ const Streaks = () => {
           <Zap size={16} className="text-accent" />
           <p className="text-sm font-semibold text-foreground">Streak Milestones</p>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {milestones.map((m, i) => (
             <motion.div
               key={m.days}
