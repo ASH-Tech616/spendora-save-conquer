@@ -11,7 +11,7 @@ const AppLayout = () => {
       <main className={
         isMobile
           ? "pt-16 pb-20 px-4"
-          : "ml-0 p-8 max-w-[1200px]"
+          : "pl-14 p-8 max-w-[1200px]"
       }>
         <Outlet />
       </main>
