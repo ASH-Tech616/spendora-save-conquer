@@ -21,7 +21,7 @@ const recentSavings = [
 
 const motivationalMessages = [
   "You're in the top 15% of savers this week! 🏆",
-  "12 days strong — don't break the chain! 🔥",
+  "12 days strong — don't break the chain! 🏅",
   "You've saved more than 78% of students this month.",
 ];
 
