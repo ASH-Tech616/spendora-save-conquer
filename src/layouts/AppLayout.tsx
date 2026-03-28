@@ -6,12 +6,12 @@ const AppLayout = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${isMobile ? "" : "flex"}`}>
       <AppSidebar />
       <main className={
         isMobile
           ? "pt-16 pb-20 px-4"
-          : "ml-0 p-8 max-w-[1200px]"
+          : "flex-1 min-w-0 p-8 max-w-[1200px]"
       }>
         <Outlet />
       </main>
