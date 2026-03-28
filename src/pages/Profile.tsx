@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { User, TrendingUp, Flame, Coins, Award, Target, Calendar, Shield } from "lucide-react";
+import SpendoraFlame from "@/components/SpendoraFlame";
 
 const stats = [
   { label: "Total Savings", value: "$1,247.50", icon: TrendingUp, color: "text-success" },
@@ -12,7 +13,7 @@ const stats = [
 
 const badges = [
   { name: "First Save", icon: "💰", earned: true },
-  { name: "Week Warrior", icon: "🔥", earned: true },
+  { name: "Week Warrior", icon: "flame", earned: true },
   { name: "Battle Victor", icon: "⚔️", earned: true },
   { name: "Top 10", icon: "🏆", earned: true },
   { name: "Century Saver", icon: "💎", earned: false },
@@ -97,7 +98,13 @@ const Profile = () => {
               transition={{ delay: 0.4 + i * 0.05 }}
               whileHover={b.earned ? { scale: 1.05 } : {}}
             >
-              <span className="text-2xl md:text-3xl block mb-2">{b.earned ? b.icon : "🔒"}</span>
+              <span className="text-2xl md:text-3xl block mb-2">
+                {b.earned
+                  ? b.icon === "flame"
+                    ? <SpendoraFlame size={28} hoverOnly />
+                    : b.icon
+                  : "🔒"}
+              </span>
               <p className={`text-xs font-medium ${b.earned ? "text-accent" : "text-muted-foreground"}`}>{b.name}</p>
             </motion.div>
           ))}

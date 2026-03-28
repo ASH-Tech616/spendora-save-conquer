@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, Sparkles, TrendingUp } from "lucide-react";
+import SpendoraFlame from "@/components/SpendoraFlame";
 
 interface AddSavingModalProps {
   open: boolean;
@@ -46,7 +47,7 @@ const AddSavingModal = ({ open, onClose }: AddSavingModalProps) => {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-xl font-bold text-foreground">Add Saving</h2>
-                    <p className="text-sm text-muted-foreground mt-1">Keep your streak alive 🔥</p>
+                    <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">Keep your streak alive <SpendoraFlame size={16} hoverOnly /></p>
                   </div>
                   <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors">
                     <X size={20} />
