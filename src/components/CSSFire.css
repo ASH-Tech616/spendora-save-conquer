@@ -1,0 +1,80 @@
+.fire-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center bottom;
+}
+
+.fire-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.fire-diamond {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #f9dcad 0%, #ff6b35 40%, #ff4500 70%, #cc2200 100%);
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -20px;
+  border-radius: 0 8px 0 8px;
+  animation: fire-flicker 150ms ease-in-out infinite;
+  box-shadow:
+    0 0 30px rgba(255, 107, 53, 0.6),
+    0 0 60px rgba(255, 69, 0, 0.4),
+    0 0 90px rgba(249, 220, 173, 0.2);
+}
+
+.fire-corpus {
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  background: linear-gradient(135deg, #ffe4a0 0%, #ffb347 30%, #ff6b35 60%, #ff4500 100%);
+  box-shadow:
+    0 0 40px rgba(255, 179, 71, 0.7),
+    0 0 80px rgba(255, 107, 53, 0.5),
+    0 0 120px rgba(249, 220, 173, 0.3);
+  border-radius: 2px 10px 2px 10px;
+  z-index: 2;
+}
+
+.fire-diamond-inner {
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  z-index: 3;
+}
+
+.fire-diamond-right {
+  background: linear-gradient(135deg, #fff7e0 0%, #ffcc66 40%, #ff8c00 80%);
+  left: 60%;
+  bottom: 15px;
+  animation-duration: 120ms;
+  border-radius: 0 6px 0 6px;
+  box-shadow:
+    0 0 20px rgba(255, 204, 102, 0.8),
+    0 0 40px rgba(255, 140, 0, 0.5);
+}
+
+.fire-diamond-left {
+  background: linear-gradient(135deg, #fff0c8 0%, #ffd700 30%, #ff9500 70%);
+  left: 40%;
+  bottom: 20px;
+  animation-duration: 180ms;
+  animation-direction: reverse;
+  border-radius: 0 6px 0 6px;
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 0 40px rgba(255, 149, 0, 0.5);
+}
+
+@keyframes fire-flicker {
+  0% { transform: rotate(45deg) scale(1) translate(0, 0); }
+  25% { transform: rotate(46deg) scale(1.02, 0.98) translate(1px, -1px); }
+  50% { transform: rotate(44deg) scale(0.98, 1.03) translate(-1px, -2px); }
+  75% { transform: rotate(46.5deg) scale(1.01, 0.99) translate(0.5px, -1px); }
+  100% { transform: rotate(45deg) scale(1) translate(0, 0); }
+}
