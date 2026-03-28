@@ -86,13 +86,13 @@ const SidebarContent = ({ onClose }: { onClose?: () => void }) => {
 };
 
 const AppSidebar = () => {
-  const isMobile = useIsMobile();
+  const isTabletOrBelow = useIsTabletOrBelow();
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Mobile: bottom nav + overlay drawer
-  if (isMobile) {
+  // Mobile/Tablet: bottom nav + overlay drawer
+  if (isTabletOrBelow) {
     return (
       <>
         {/* Mobile top header */}
