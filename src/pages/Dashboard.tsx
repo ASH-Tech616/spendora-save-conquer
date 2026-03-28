@@ -58,7 +58,22 @@ const Dashboard = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Welcome back, Alex 👋</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+            Welcome back, Alex{" "}
+            <motion.span
+              className="inline-block"
+              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                repeatDelay: 3,
+                ease: "easeInOut",
+              }}
+              style={{ transformOrigin: "70% 70%" }}
+            >
+              👋
+            </motion.span>
+          </h1>
           <motion.p
             key={msgIndex}
             className="text-sm text-muted-foreground mt-1"
